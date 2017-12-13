@@ -1,5 +1,6 @@
 # readnl
-Read all new lines from file.
+
+Read new lines from file since last run.
 
 Rewritten from scratch in 2010
 
