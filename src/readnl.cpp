@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 			} else {
 				fileseek = atoll(str.c_str());
 			};
-			fprintf(stderr, "cfi: filepos=%ld\n", fileseek, str.c_str());
+			fprintf(stderr, "cfi: filepos=%ld\n", fileseek);
 		}
 	} else {
 		fprintf(stderr, "Can't read config file. It's ok for first run\n");
@@ -121,7 +121,7 @@ int main(int argc, char** argv)
 		fprintf(stderr, "Can't write config file....\n");
 	}
 
-	fprintf(stderr, "Total lines in file: %i\n", linecount);
+	fprintf(stderr, "Total lines in file: %ld\n", linecount);
 	fprintf(stderr, "Current position in file: %ld\n", filelastfp);
 	return 0;
 }
