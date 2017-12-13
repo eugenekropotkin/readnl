@@ -1,6 +1,14 @@
 # readnl
 
-Read new lines from file since last run.
+Read new lines from file since last run
+---------------------------------------
+
+Output lines will be send to `stdout`
+
+App statistics will be send to `stderr`
+
+
+---
 
 Rewritten from scratch in 2010
 
