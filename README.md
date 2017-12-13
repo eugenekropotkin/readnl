@@ -1,6 +1,6 @@
 # readnl
 
-###Read new lines from file since last run
+### Read new lines from file since last run
 
 Single argument: `filename`
 
