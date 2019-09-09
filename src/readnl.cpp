@@ -22,24 +22,22 @@ string to_string(long long param) {
 
 int main(int argc, char** argv) 
 {
-
 	if( (argc<2) )
 	{
 	    printf("---------------------------------------------------\nNo arguments! Need 1 arg = file name to analyze.\nNew lines will be at stdout, log will be at stderr\n---------------------------------------------------\n");
 	    return 0;
 	}
 
+	//init
 	long linecount = 0;
 	long filelastfp = 0;
 	long fileseek = 0;
-
 	//printf("int %i\n",sizeof(int));
 	//printf("long %i\n",sizeof(long));
 	//return 0;
 
 	std::string str, cfn;
 
-	//fprintf(stderr, "%s\n", strerror(errno));
 	fprintf(stderr, "input data: %s\n", argv[1]);
 
 	std::ifstream file, cfi;
@@ -52,8 +50,6 @@ int main(int argc, char** argv)
 	cfi.open(cfn.c_str(), std::ifstream::binary);
 	if (cfi) {
 		while (std::getline(cfi, str)) {
-			//file_contents += str;
-			//linecount++;
 			if (str.length() < 1) {
 				fileseek = 0;
 			} else {
@@ -99,7 +95,6 @@ int main(int argc, char** argv)
 
 	while (std::getline(file, str)) {
 		printf("%s\n", str.c_str());
-		//file_contents += str;
 		linecount++;
 	}
 	file.close();
@@ -109,11 +104,10 @@ int main(int argc, char** argv)
 	filelastfp = file.tellg();
 	file.close();
 
+	//final logging to stderr
 	fprintf(stderr, "Config file is: [%s]\n", cfn.c_str());
 	cfo.open(cfn.c_str(), std::ifstream::binary | std::ifstream::trunc);
 	if (cfo) {
-		//file_contents += str;
-		//linecount++;
 		str = to_string(filelastfp);
 		cfo.write(str.c_str(), str.length());
 		fprintf(stderr, "cfi: %ld [%s]\n", filelastfp, cfn.c_str());
